@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='ro'>
+    <head>
+        <title>Natura</title>
+       
+        
+        <meta name="keywords" content="plante, copaci, flori, fructe, legume, arbusti, pomi">
+        <meta name="description" content="Tot felul de plante">
+        
+        
+        <%-include("../fragmente/head.ejs")%>
+        
+
+    </head>
+    <body>
+        <%-include("../fragmente/header.ejs")%>
+        <main>
+            <p> Ip: <%- locals.ip %></p>
+            <br/>
+            <p><em>Firma a fost infiintata in 2020 cand Armand a plantat mai multe plante exotice. De atunci, cercetatorii lucreaza cu pasiune pentru a creste cele mai frumoase si interesante plante.</em></p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </main>
+        <div class="row">
+            <div class="column side">
+                <h4>Intrebari frecvente</h4>
+                <details>
+                    <summary>Pe o scara de la 1 la 10 cat de bun este site-ul?</summary>
+                    <p>Cel mai cool site din lume</p>
+                </details>
+                <details>
+                    <summary>L-ai facut la 4 dimineata?</summary>
+                    <p>Da</p>
+                </details>
+                <details>
+                    <summary>Poti sa imi dai un autograf?</summary>
+                    <p>Desigur</p>
+                </details>
+                <details>
+                    <summary>This Fibonacci joke is worse than the last 2 you heard combined</summary>
+                    <p>Ha Ha Haha Hahaha Hahahahaha</p>
+                </details>
+            </div>
+            <div class="column middle">
+                <figure>
+                    <picture>
+                        <source srcset="resurse/imagini/p3.png" media="(max-width:700px)"/>
+                        <source srcset="resurse/imagini/p2.png" media="(max-width:1200px)"/>
+                        <img src="./resurse/imagini/p1.png"
+                        alt="text alternativ"/>
+                    </picture>
+                    <figcaption><i style="color:var(--orange);">SAKURA</i></figcaption>
+                </figure>
+            </div>
+            <div class="column side">
+                Contacteaza-ne
+                <br/>
+                <address>
+                <ul>
+                    <li><a href="tel:+40722222222">+40722222222</a></li>
+                    <li><a href="https://www.google.com/maps/place/Rano+Raraku/@-27.125476,-109.2823631,17z/data=!4m12!1m6!3m5!1s0x9947f206d473138f:0x3a3c0f2a0421a18d!2sAhu+Tongariki!8m2!3d-27.1257851!4d-109.2769426!3m4!1s0x9947f1ffab35b13f:0xee39ad6e48e01198!8m2!3d-27.1238891!4d-109.2861108" target="_blank">Acesta este locatia noastra. Poate tu poti face lumina asupra acestui mister.</a></li>
+                    <li><a href = "mailto:perry_the_platypus@gmail.com">Our Email</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=+40722222222">Lasa-ne un mesaj</a></li>
+                </ul>
+                </address>
+                <br/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <%-include("../fragmente/footer.ejs")%>
+    </body>
+</html>

@@ -1,0 +1,324 @@
+body
+{
+    --lime:lime;
+    --cyan:cyan;
+    --orange:orange;
+    --white: rgb(255, 255, 232);
+    --black:black;
+    background-color: var(--white);
+}
+
+
+#filmulete a
+{
+    display:inline-block;
+    height:25px;
+    width:200px;
+    text-align:center;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+}
+
+#filmulete a:hover 
+{
+    background-color: var(--cyan);
+    transition: background 0.5s ease-in-out;
+}
+
+#filmulete
+{
+    left:20%;
+}
+
+#filmulete > #natura
+{
+    padding:25px;
+    text-align:center;
+}
+
+#filmulete > #bambus
+{
+    padding:25px;
+    text-align:center;
+}
+
+#ecran
+{
+    display: flexbox;
+    align-content: center;
+}
+
+#ecran > #filmulete
+{
+    position:relative;
+}
+
+.header {
+    background-color: var(--white);
+    padding: 20px;
+    padding-bottom: 150px;
+    text-align: left;
+    width:100%;
+  }
+
+.normal {
+    background-color: var(--white);
+    padding: 20px;
+    width:100%;
+    text-align: left;
+  }
+
+  /* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 20px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 20%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+  }
+
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+
+#top
+{
+    position:fixed;
+    bottom:1em;
+    opacity:0.5;
+    right:3em;
+    width:3rem;
+    box-sizing:border-box;
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+    border:1px solid rgb(200,200,200);
+    border-radius:50%;
+    background: rgb(222,222,222);
+}
+
+#top:hover
+{
+    opacity:1;
+}
+
+#top::after
+{
+    content:"\21E7";
+    color:var(--black);
+}
+
+#top:hover::after
+{
+    content:"\21E7";
+    color:var(--black);   
+}
+
+::cue{
+  text-shadow: black 0px 0px 5px, black 0px 0px 5px, black 0px 0px 5px, black 0px 0px 5px;
+  background-color: transparent;
+  color: rgb(255, 212, 222);
+}
+
+
+
+
+#banner {
+  display: none;
+}
+
+#watermark {
+  display: none;
+}
+
+@media print {
+  #banner {
+      width: 70%;
+      display: block;
+      border: 4px solid black;
+      text-align: center;
+      margin: auto;
+      page-break-after: always;
+      position: relative;
+      bottom: -450px; 
+      content: "Acesta este un proiect scolar";
+  }
+
+  q {
+      display: none;
+  }
+
+  nav > ul {
+      display:block !important;
+      margin-left: 45% !important;
+  }
+
+  nav > ul > li {
+      list-style-type:circle !important;
+      
+  }
+
+  h1 {
+      margin-top: 50%;
+      text-align: center;
+  }
+
+  #top {
+      display: none !important;
+  }
+
+  iframe, figure, video {
+      display: none;
+  }
+
+  footer {
+      page-break-before: always;
+  }
+
+  #watermark {
+      display: block !important;
+      position: fixed;
+      width: 4cm;
+      height: 1cm;
+      border: 3px solid black;
+      border-radius: 25%;
+      right: 0px;
+      bottom: 0px;
+      text-align: center;
+  }
+
+  @page :left {
+      margin-left: 3cm;
+      margin-right: 1cm;
+  }
+      
+  @page :right {
+      margin-left: 1cm;
+      margin-right: 3cm;
+  }
+  
+} 
+
+
+table, th, td {
+  /*border: 1px solid;*/
+  border-collapse: collapse;
+}
+
+tr:nth-child(2n) {
+  border-bottom: orange 1px solid;
+  border-top: cyan 1px solid;
+}
+
+thead tr:nth-child(1) {
+  border-bottom: orange 1px solid;
+  border-top: cyan 1px solid;
+}
+
+tfoot tr:nth-child(1) {
+  border-bottom: orange 1px solid;
+  border-top: cyan 1px solid;
+}
+
+table{
+  border-style: inset;
+  border: 5px solid black;
+}
+
+tbody tr:hover{
+  border:5px solid rgba(0,255,0,0.7)
+}
+
+tbody tr{
+  transition: all linear 0.5s;
+}
+
+td{
+  text-align: center;
+}
+
+#program{
+  caption-side: bottom;
+}
+
+
+#text-reflectat{
+	position:absolute;
+	left:0;
+	top:100%;
+	transform-origin:0 0;
+	transform: rotate(45deg) rotateY(180deg) translate(-300px,-175px);
+}
+
+#text{	
+	position:absolute;
+  transform: rotate(-22.5deg);
+}
+
+#text, #text-reflectat{
+	font-size:50px;
+	line-height:50px;
+	font-weight: bold;
+}
+
+#text{
+  color:black;
+  transition: color 2s;
+}
+
+#text:hover{
+  color: lime;
+}
+
+/*#text:hover{
+  animation-name: reflectat;
+  animation-duration: 0.5s;
+}
+
+#text{
+  animation-name: inapoi;
+  animation-duration: 0.5s;
+}
+
+
+@keyframes reflectat {
+  0%{
+    color: black;
+  }
+  100%{
+    color: lime;
+  }
+}
+
+@keyframes inapoi {
+  0%{
+    color: lime;
+  }
+  100%{
+    color: black;
+  }
+}*/

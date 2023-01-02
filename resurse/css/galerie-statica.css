@@ -1,0 +1,69 @@
+#galerie-statica{
+    padding-left:var(--padding-intern);
+    padding-right:var(--padding-intern);
+}
+  
+#grid-galerie {
+   display:grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-row-gap:0.5em;
+   grid-column-gap:0.5em;
+   counter-reset: nrimag 0;
+}
+#grid-galerie img{
+    width: 100%;
+}
+#grid-galerie figcaption{
+    text-align:center;
+    counter-increment: nrimag 1;
+}
+
+#grid-galerie figcaption::before{
+    content: counter(nrimag, lower-greek) ". ";
+}  
+
+#grid-galerie figcaption{
+    opacity:0%;
+}
+
+#grid-galerie figure:hover figcaption{
+    opacity: 100%;
+    animation-name: descriere;
+    animation-duration: 1.1s;
+    transform-origin: 50% 0;
+}
+
+#grid-galerie figure:hover picture{
+    animation-name: contrast_poze;
+    animation-duration: 1.1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes contrast_poze{
+	100%{
+    	filter: contrast(200%);
+    }
+}
+
+@keyframes descriere{
+    0%{
+        opacity: 0;
+        transform:scale(0,1);
+    }
+    100%{
+        opacity: 1;
+        
+        transform:scale(1,1);
+    }
+}
+
+@media screen and (max-width:500px){
+    #grid-galerie {
+        display:block;
+    }
+}
+@media screen and (max-width:1000px){
+    #grid-galerie {
+        display:block;
+    }
+}

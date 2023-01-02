@@ -1,0 +1,15 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+    $primary: deepskyblue,
+    $info: lightskyblue,
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 500px,
+        md: 750px,
+        lg: 1000px,
+        xl: 1200px,
+        xxl: 1400px
+        ),
+        $h1-font-size:                $font-size-base * 2.48,
+        $h2-font-size:                $font-size-base * 2.02,
+        $border-radius:               .376rem
+);

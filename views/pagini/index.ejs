@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang='ro'>
+    <head>
+        <title>Natura</title>
+       
+        
+        <meta name="keywords" content="plante, copaci, flori, fructe, legume, arbusti, pomi">
+        <meta name="description" content="Tot felul de plante">
+        
+        
+        <%-include("../fragmente/head.ejs")%>
+        
+
+    </head>
+    <body>
+        <%-include("../fragmente/header.ejs")%>
+        <main>
+            <section id="Prezentare">
+                <div class="normal">
+                    <h2><strong>Bine ati venit!</strong></h2>
+                    <p>Aici veti putea regasi armonia cu <a href="https://www.youtube.com/embed/UV0mhY2Dxr0" target="iframe1">natura</a> cu ajutorul</p>
+                    <ol>
+                        <li><b>Florilor</b></li>
+                        <li><b>Arborilor</b> <s>indexati binar</s> <ins>neinformatici</ins></li>
+                        <li><b>Arbustilor</b></li>
+                    </ol>
+                </div>
+            </section>
+            <br/>
+            <br/>
+            <section>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="column side">
+                        <h2><dfn><b>Plantele</b></dfn> aduc echilibru in viata oricui</h2>
+                    </div>
+                    <div class="column middle">
+                        <p>Aici puteti gasi toate plantele la care <abbr>dvs.</abbr> ati visat. Poate considerati ca <a href="https://www.google.com/search?q=eucalyptus+deglupta&source=lmns&hl=ro&sa=X&ved=2ahUKEwjm26zfnaH2AhUP16QKHVDRBEMQ_AUoAHoECAEQAA" target="_blank"><i>Eucalyptus Deglupta</i></a> s-ar potrivi cu personalitatea dumneavoastra sau poate doriti sa creati o atmosfera de poveste cu o <a href="https://www.youtube.com/embed/mi2Eb3wt74Y" target="iframe1">padurice de bambus</a>. Imaginatia este limita pe acest site. </p>
+                    </div>
+                    <div class="column side">
+                            <h3><em><q>Plantele cunoaşterii trebuie stropite cu lacrimi</q></em></h3>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div id="rotitor"><div></div></div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div id="ecran" class="normal">
+                <div id="filmulete">
+                    <a href="https://www.youtube.com/embed/UV0mhY2Dxr0" target="iframe1" id="natura">natura</a>
+                    <a href="https://www.youtube.com/embed/mi2Eb3wt74Y" target="iframe1" id="bambus">padurice de bambus</a>
+                </div>
+                <iframe name="iframe1" width="1280" height="720" src="/resurse/ico/favicon.ico"></iframe>   
+                <!-- nu am mai pus src="target.html"    desupra (la final)-->
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <video width="320" height="240" controls="controls" poster="/resurse/ico/favicon.ico" preload="none">
+                <source src="/resurse/video/sakura.mp4" type="video/mp4">
+                <source src="/resurse/video/sakura.ogv" type="video/ogv">
+                <track default src="/resurse/captions/mesaje_ro.vtt" kind="captions" srclang="ro" label="romana" />
+                <track  src="/resurse/captions/mesaje_en.vtt" kind="captions" srclang="en" label="engleza" />
+            </video>
+        </main>
+        <br/>
+        <br/>
+        <div id="tabel" style="overflow-x: scroll; max-width: 180px;">
+            <table id="program">
+                <caption> Program</caption>
+                <thead>
+                    <tr>
+                        <th>Nr</th>
+                        <th>Zi</th>
+                        <th>Start</th>
+                        <th>Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Luni</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Marti</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Miercuri</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Joi</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Vineri</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Samabata</td>
+                        <td>10</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Duminica</td>
+                        <td>10</td>
+                        <td>14</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">In total 7 zile.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <br/>
+        <br/>
+        <section id="galerie-statica">
+            <h2>Galerie</h2>
+            <div id="grid-galerie">
+                <% for (let imag of locals.imagini) { 
+                    //var d=new Date();
+                    //var v_luni=["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+                    //var luna_r=v_luni[d.getMonth()];
+                    var luna_r="iunie";
+                    if(imag.luni && imag.luni.includes(luna_r)) {%>
+                        <figure>
+                            <picture>
+                                <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)"/>
+                                <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)"/>
+                                <img src="<%- imag.fisier %>" alt="imagine">
+                            </picture>
+                            <figcaption><%- imag.descriere %></figcaption>
+                        </figure>
+                    <% } %>
+                <% } %>
+            </div>
+        </section>
+        <br/>
+        <br/>
+        <div id="text">
+            Natura
+            <div id="text-reflectat">
+                Natura
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <p><button class="btn btn-primary">Plante</button> multe</p>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="column side">
+                <h4>Intrebari frecvente</h4>
+                <details>
+                    <summary>Pe o scara de la 1 la 10 cat de bun este site-ul?</summary>
+                    <p>Cel mai cool site din lume</p>
+                </details>
+                <details>
+                    <summary>L-ai facut la 4 dimineata?</summary>
+                    <p>Da</p>
+                </details>
+                <details>
+                    <summary>Poti sa imi dai un autograf?</summary>
+                    <p>Desigur</p>
+                </details>
+                <details>
+                    <summary>This Fibonacci joke is worse than the last 2 you heard combined</summary>
+                    <p>Ha Ha Haha Hahaha Hahahahaha</p>
+                </details>
+            </div>
+            <div class="column middle">
+                <figure>
+                    <picture>
+                        <source srcset="resurse/imagini/p3.png" media="(max-width:700px)"/>
+                        <source srcset="resurse/imagini/p2.png" media="(max-width:1200px)"/>
+                        <img src="./resurse/imagini/p1.png"
+                        alt="text alternativ"/>
+                    </picture>
+                    <figcaption><i style="color:var(--orange);">SAKURA</i></figcaption>
+                </figure>
+            </div>
+            <div class="column side">
+                Contacteaza-ne
+                <br/>
+                <address>
+                <ul>
+                    <li><a href="tel:+40722222222">+40722222222</a></li>
+                    <li><a href="https://www.google.com/maps/place/Rano+Raraku/@-27.125476,-109.2823631,17z/data=!4m12!1m6!3m5!1s0x9947f206d473138f:0x3a3c0f2a0421a18d!2sAhu+Tongariki!8m2!3d-27.1257851!4d-109.2769426!3m4!1s0x9947f1ffab35b13f:0xee39ad6e48e01198!8m2!3d-27.1238891!4d-109.2861108" target="_blank">Acesta este locatia noastra. Poate tu poti face lumina asupra acestui mister.</a></li>
+                    <li><a href = "mailto:perry_the_platypus@gmail.com">Our Email</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=+40722222222">Lasa-ne un mesaj</a></li>
+                </ul>
+                </address>
+                <br/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div id="watermark"> watermark </div>
+        <div id="banner"> banner</div>
+        <br/>
+        <br/>
+        <%-include("../fragmente/footer.ejs")%>
+    </body>
+</html>

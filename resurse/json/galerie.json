@@ -1,0 +1,66 @@
+{
+    "cale_galerie": "resurse/imagini/galerie",
+    "imagini": [
+        {
+            "fisier":"Arborele de Matase Albizia.jpeg",
+            "descriere":"Arborele de Matase Albizia",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Azalee Pitica.jpeg",
+            "descriere":"Azalee Pitica",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Azalee.jpeg",
+            "descriere":"Azalee",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Branduse.jpeg",
+            "descriere":"Branduse",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Hortensia Vanille Fraise.jpeg",
+            "descriere":"Hortensia Vanille Fraise",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Lalea Alb Rosie.jpeg",
+            "descriere":"Lalea Alb Rosie",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Lalea Galben Rosie.jpeg",
+            "descriere":"Lalea Galben Rosie",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Lalea Papagal.jpeg",
+            "descriere":"Lalea Papagal",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Trandafir Double Delight.jpeg",
+            "descriere":"Trandafir Double Delight",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Trandafir Satirat Alb Rosu.jpeg",
+            "descriere":"Trandafir Satirat Alb Rosu",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Trandafir Satirat Rosu Alb.jpeg",
+            "descriere":"Trandafir Satirat Rosu Alb",
+            "luni": ["iunie"]
+        },
+        {
+            "fisier":"Iris.jpeg",
+            "descriere":"Iris",
+            "luni": ["iunie"]
+        }
+    ]
+}
+  
