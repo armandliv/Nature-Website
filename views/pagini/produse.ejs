@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="plante, copaci, flori, fructe, legume, arbusti, pomi">
+        <meta name="description" content="Tot felul de plante">
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <title>Plante - home</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <label> Nume: <input type="text" id="inp-nume"></label>
+        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+        <div> Inaltime:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+            <p><label>Scunda (inaltime &le; 50)
+                <input id="i_rad1"  name="gr_rad" value="0:50" type="radio"/>
+            </label></p>
+            <p><label>Medie (50 &lt; inaltime &le; 130)
+                <input id="i_rad2"  name="gr_rad" value="50:130" type="radio"/>
+            </label>
+            <p><label>Inalta (130 &lt; inaltime)
+                <input id="i_rad3" name="gr_rad" value="130:1000000000" type="radio"/>
+            </label>
+            <p><label>Toate
+                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
+            </label>
+        </div>
+
+        <div>Udat
+            <label>Putin
+                <input id="i_check1" name="gr_chck" checked value="10" type="checkbox"/>
+            </label>
+            
+            <label>Moderat
+                <input id="i_check2" name="gr_chck" checked value="20" type="checkbox"/>
+            </label>
+        
+            <label>Mult
+                <input id="i_check3" name="gr_chck" checked value="30" type="checkbox"/>
+            </label>
+        </div>
+
+        <label>Umbra:
+            <input list="id_lista" id="i_datalist">
+            <datalist id="id_lista">
+                <option value="umbra">umbra</option>
+                <option value="semiumbra">semiumbra</option>
+                <option value="soare">soare</option>
+            </datalist>
+        </label>
+
+        <label>Select multiplu:
+            <select id="i_sel_multiplu" multiple size="3">
+                <option value="sol obisnuit" selected>Sol obisnuit</option>
+                <option value="sol bun" selected>Sol bun</option>
+                <option value="sol argilos" selected>Sol argilos</option>
+                <option value="sol nisipos" selected>Sol nisipos</option>
+            </select>
+        </label>
+
+        <label>Descriere:
+            <textarea id="i_textarea"></textarea>
+        </label>
+
+        <label> Pret minim: <span id="minim"></span><input type="range" id="inp-pret" value="0" min="0" max="300"> <span id="maxim"></span> <span id="infoRange">(0)</span></label>
+        <label>Select simplu:
+            <select id="inp-categorie">
+                <option id="sel-toate" selected value="toate">toate</option>
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+            </select>
+        </label>
+        <p> 
+        <button id="filtrare">Filtreaza</button>
+        <button id="resetare">Reseteaza</button><br/>
+        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
+        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+        <button id="sortCrescCerinta">Sorteaza crescator dupa inaltime/pret si categoria plantei</button>
+        <button id="sortDescrescCerinta">Sorteaza descrescator dupa inaltime/pret si categoria plantei</button>
+        </p>
+        
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        <section id="produse">
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <div id="infoinfo">
+                            <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                            <ul>
+                                <li><p class="id">Id: artc-<span class="val-id"><%- prod.id %></span></p></li>    
+                                <div class="info-prod">
+                                    <li><p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p></li>
+                                    <li><p class="inaltime">Inaltime: <span class="val-inaltime"><%- prod.inaltime%></span></p></li>
+                                    <!--<p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>-->
+                                </div>
+                                <li><p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie %></span></p></li>
+                                <li><p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere %></span></p></li>
+                                <li><p class="culoare">Culoare: <span class="val-culoare"><%- prod.culoare %></span></p></li>
+                                <li><p class="informatii">Informatii: <span class="val-informatii"><%- prod.informatii %></span></p></li>
+                                <li><p class="data_adaugare">Data adaugarii: <time><span class="val-data"><%- prod.data_adaugare %></span></time></p></li>
+                                <li><p class="rezist">Rezistenta: <span class="val-rezist"><%- prod.rezist %></span></p></li>
+                            </ul>
+                            <label class="selecteaza-cos">
+                                Selectează:<br/>
+                                <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                            </label>
+                        </div>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

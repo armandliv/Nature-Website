@@ -6,6 +6,40 @@ body{
     --white:white;
     --black:black;
     --backmeniu:var(--lime);
+    --cl-text: var(--black);
+}
+
+body.dark{
+    --inaltime-meniu:3rem;
+    --lime:orange;
+    --cyan:lime;
+    --orange:lightskyblue;
+    --white: black;
+    --black:white;
+    --backmeniu:var(--lime);
+    --cl-text: var(--black);
+}
+
+body.tema1
+{
+    --lime:green;
+    --cyan:blue;
+    --orange:red;
+    --white: yellow;
+    --black: purple;
+    --backmeniu:var(--lime);
+    --cl-text: var(--black);
+}
+
+body.tema2
+{
+    --lime:lightpink;
+    --cyan: lightgreen;
+    --orange: lightskyblue;
+    --white: white;
+    --black: deepskyblue;
+    --backmeniu:var(--lime);
+    --cl-text: var(--black);
 }
 
 nav ul.meniu ul{
@@ -131,7 +165,7 @@ nav ul.meniu>li:hover>ul{
 }
 
 div#rotitor {
-    background:skyblue;
+    background: var(--cyan);
     width:100px;
     height:100px;
     animation-name: rotire;

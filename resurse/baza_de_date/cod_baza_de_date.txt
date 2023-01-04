@@ -1,0 +1,35 @@
+DROP TYPE IF EXISTS categ_planta;
+DROP TYPE IF EXISTS tipuri;
+
+CREATE TYPE categ_planta AS ENUM('globala','tropicala','subtropicala','mediteraneana','temperata','arctica','desertica');
+CREATE TYPE tipuri AS ENUM('copaci', 'flori', 'arbusti');
+
+
+CREATE TABLE IF NOT EXISTS plante (
+   id serial PRIMARY KEY,
+   nume VARCHAR(50) UNIQUE NOT NULL,
+   descriere TEXT,
+   imagine VARCHAR(300),
+   tip tipuri DEFAULT 'flori',
+   categorie categ_planta DEFAULT 'globala',
+   pret NUMERIC(8,2) NOT NULL,
+   inaltime INT NOT NULL CHECK (inaltime>=0),
+   data_adaugare TIMESTAMP DEFAULT current_timestamp,   
+   culoare VARCHAR(50),
+   informatii VARCHAR [],
+   rezist BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+INSERT into plante (nume,descriere,imagine,tip,categorie,pret,inaltime,culoare,informatii,rezist) VALUES 
+('Arborele de Matase Albizia','copac inedit','Arborele de matase Albizia.jpeg','copaci','mediteraneana',200,700,'roz','{"sol bun","semiumbra","udat moderat"}',TRUE),
+('Azalee Pitica','arbust inedit','Azalee Pitica.jpeg','arbusti','mediteraneana',180,50,'violet','{"sol nisipos","soare","udat moderat"}',TRUE),
+('Azalee','arbust superb','Azalee.jpeg','arbusti','mediteraneana',190,200,'portocaliu','{"sol bun","semiumbra","udat moderat"}',TRUE),
+('Branduse','floricele dragute','Branduse.jpeg','flori','desertica',90,20,'violet','{"sol bun","soare","udat putin"}',TRUE),
+('Hortensia Vanille Fraise','floare care se transforma','Hortensia Vanille Fraise.jpeg','flori','tropicala',170,100,'multicolor','{"sol bun","umbra","udat mult"}',TRUE),
+('Lalea Alb Rosie','floare frumoasa','Lalea Alb Rosie.jpeg','flori','subtropicala',110,30,'alb','{"sol obisnuit","semiumbra","udat moderat"}',TRUE),
+('Lalea Galben Rosie','floare exceptionala','Lalea Galben Rosie.jpeg','flori','subtropicala',120,30,'galben','{"sol obisnuit","semiumbra","udat moderat"}',TRUE),
+('Lalea Papagal','Floare incredibila','Lalea Papagal.jpeg','flori','globala',160,60,'multicolor','{"sol bun","semiumbra","udat moderat"}',TRUE),
+('Trandafir Double Delight','trandafir exemplar','Trandafir Double Delight.jpeg','flori','globala',140,90,'multicolor','{"sol obisnuit","soare","udat moderat"}',TRUE),
+('Trandafir Satirat Alb Rosu','trandafir minunat','Trandafir Satirat Alb Rosu.jpeg','flori','temperata',130,80,'alb','{"sol obisnuit","semiumbra","udat moderat"}',TRUE),
+('Trandafir Satirat Rosu Alb','trandafir fascinant','Trandafir Satirat Rosu Alb.jpeg','flori','temperata',130,80,'rosu','{"sol obisnuit","semiumbra","udat moderat"}',TRUE),
+('Iris','floare simpatica','Iris.jpeg','flori','arctica',70,120,'violet','{"sol argilos","soare","udat putin"}',FALSE);

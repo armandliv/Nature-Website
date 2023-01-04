@@ -1,0 +1,41 @@
+window.addEventListener("DOMContentLoaded",function(){
+    vector_teme=["dark","tema1","tema2"];
+    document.getElementById("tema").onclick=function(){
+        tema_curenta=localStorage.getItem("tema");
+        if(tema_curenta)
+        {
+            for(let i=0;i<=2;i++)
+            {
+                if(vector_teme[i]==tema_curenta)
+                {
+                    if(i==2)
+                    {
+                        document.body.classList.remove(tema_curenta);
+                        localStorage.removeItem("tema");
+                    }
+                    else
+                    {
+                        document.body.classList.remove(tema_curenta);
+                        document.body.classList.add(vector_teme[i+1]);
+                        localStorage.removeItem("tema");
+                        localStorage.setItem("tema",vector_teme[i+1]);
+                    }
+                }
+            }
+        }
+        else
+        {
+            document.body.classList.add(vector_teme[0]);
+            localStorage.setItem("tema",vector_teme[0]);
+        }
+    };
+});
+/*
+        if(document.body.classList.contains("dark")){
+            document.body.classList.remove("dark");
+        }
+        else
+        {
+            document.body.classList.add("dark");
+        }
+*/

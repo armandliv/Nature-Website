@@ -2,7 +2,9 @@ const express = require("express");
 const fs = require("fs");
 
 const sharp = require("sharp");
-
+const ejs=require("ejs");
+const sass=require("sass");
+const {Client}=require("pg");
 
 var app = express();
 
@@ -10,11 +12,64 @@ app.set("view engine","ejs");
 
 app.use("/resurse",express.static(__dirname+"/resurse"));
 
+
+var vedeToataLumea="ceva!";
+app.use("/*",function(req,res,next){
+    res.locals.vede=vedeToataLumea;
+    next();
+});
+
+
 app.get(["/","/index","/home"],function(req,res){
     res.render("pagini/index",{imagini:obGlobal.imagini});
     
-})
+});
 
+//var cssBootstrap=sass.compile(__dirname+"resurse/scss/customizare-bootstrap.scss",{sourceMap:true});
+//fs.writeFileSync(__dirname+"/resurse/scss/customizare-bootstrap.css",cssBootstrap.css);
+
+var client = new Client({database:"laborator",
+    user:"armand",
+    password:"armand",
+    host:"localhost",
+    port:5432
+});
+client.connect();
+
+client.query("select * from unnest(enum_range(null::categ_planta))", function(err,rez){
+    if(err)
+        console.log(err);
+    else
+        console.log(rez);
+});
+
+app.get(["/produse"],function(req,res){
+    client.query("select * from unnest(enum_range(null::categ_planta))",function(err,rezCateg){
+        continuareQuery="";
+        if(req.query.tip)
+            continuareQuery+=` and tip='${req.query.tip}'`; //"tip='"+req.query.tip+"'";
+        client.query("select * from plante where 1=1 " + continuareQuery, function(err,rez){
+            if(err)
+            {
+                console.log(err);
+                renderError(res,2);
+            }
+            else
+                res.render("pagini/produse",{produse:rez.rows, optiuni:rezCateg.rows});});
+    })
+});
+
+app.get(["/produs/:id"],function(req,res){
+    //console.log(req.params);
+    client.query("select * from plante where id="+req.params.id, function(err,rez){
+        if(err)
+        {
+            console.log(err);
+            renderError(res,2);
+        }
+        else
+            res.render("pagini/produs",{prod:rez.rows[0]});});
+});
 
 //app.get("/index",function(req,res){
 //    res.render("pagini/index");
@@ -24,7 +79,7 @@ app.get(["/","/index","/home"],function(req,res){
 app.get("/despre",function(req,res){
     res.render("pagini/despre",{ip: req.ip});
     
-})
+});
 
 obGlobal={
     erori:null,
@@ -85,7 +140,7 @@ function renderError(res,identificator,titlu,text,imagine){
 
 app.get("/*.ejs",function(req,res){
     renderError(res,403);
-})
+});
 
 app.get("/*",function(req,res){
     res.render("pagini"+req.url,function(err,rezRandare){
@@ -97,7 +152,7 @@ app.get("/*",function(req,res){
             }
             else
             {
-
+                    
             }
         }
         else
@@ -106,7 +161,7 @@ app.get("/*",function(req,res){
         }
     });
     
-})
+});
 
 app.listen(8080);
 console.log("Serverul a pornit");

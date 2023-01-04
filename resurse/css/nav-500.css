@@ -8,6 +8,33 @@ body
     --black:black;
 }
 
+body.dark
+{
+    --lime:orange;
+    --cyan:lime;
+    --orange:lightskyblue;
+    --white: black;
+    --black:white;
+}
+
+body.tema1
+{
+    --lime:green;
+    --cyan:blue;
+    --orange:red;
+    --white: yellow;
+    --black: purple;
+}
+
+body.tema2
+{
+    --lime:lightpink;
+    --cyan: lightgreen;
+    --orange: lightskyblue;
+    --white: white;
+    --black: deepskyblue;
+}
+
 #hamburger{
     display:block;
 }
@@ -18,7 +45,7 @@ ul.meniu{
     width:100%;
 }
 
-/*aici facem vizibil meniul cand faem click pe hamburger meniu*/
+/*aici facem vizibil meniul cand facem click pe hamburger meniu*/
 #ch-menu:checked+ul.meniu{
     display: block;
     z-index: 2;
@@ -30,17 +57,17 @@ ul.meniu{
     animation-fill-mode:forwards;
     animation-timing-function:linear;
 }
-#ch-menu:checked+ul.meniu>li>div,#ch-menu:checked+ul.meniu>li>a{
+/*#ch-menu:checked+ul.meniu>li>div,#ch-menu:checked+ul.meniu>li>a{
     
     z-index: 2;
     position: relative;
-    transform-origin: 50% 50%;
+    transform-origin: 0 0;
     animation-name: aparitie_meniu_p_btn;
     animation-iteration-count:1;
     animation-duration:0.7s;
     animation-fill-mode:forwards;
     animation-timing-function:linear;
-}
+}*/
 /*optiunile se intind pe toata latimea containerului*/
 nav ul.meniu li{
     width:100%;
@@ -67,26 +94,35 @@ nav ul.meniu>li:hover>ul{
 
 
 /* pentru fiecare element din submeniu generam un triunghiulet alb inaintea lui*/
-nav ul.meniu>li li a:before{
+/*nav ul.meniu>li li a:before{
     content:" \25B7\00A0	";
     color: var(--white);
 
-}
+}*/
 
 @keyframes aparitie_meniu_p{
     0%{
-        transform:scaleY(0);
+        transform:scaleX(0);
     } 
 	100%{
-    	transform:scaleY(1);
+    	transform:scaleX(1);
     }
 }
 
 @keyframes aparitie_meniu_p_btn{
+    0%{
+        transform:scaleX(0);
+    } 
+	100%{
+    	transform:scaleX(1);
+    }
+}
+
+/*@keyframes aparitie_meniu_p_btn{
     0%{
         transform:scale(0,0);
     } 
 	100%{
     	transform:scale(1,1);
     }
-}
+}*/
