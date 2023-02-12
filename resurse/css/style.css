@@ -72,11 +72,11 @@ body.tema2
 #filmulete > #natura
 {
     /*padding:25px;*/
-    position: relative;
+    position: absolute;
     text-align:center;
     vertical-align: middle;
     left:1280px;
-    top: 52px;
+    top: 0px;
 }
 
 #filmulete > #bambus
@@ -84,16 +84,14 @@ body.tema2
     /*padding:25px;*/
     position: absolute;
     left:1280px;
-    top: 104px;
+    top: 52px;
     text-align:center;
     vertical-align: middle;
 }
 
 #ecran
 {
-    display: flexbox;
-    align-content:center;
-    float: left;
+    display: flex;
 }
 
 #ecran > #filmulete
@@ -450,3 +448,87 @@ article.produs div{
   align-content:left;
   translate: 0px 0px;
 }
+
+
+
+
+
+
+.duotone-image {
+  position: relative;
+  width: 900px;
+  height: 600px;
+}
+.duotone-image img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.duotone-image:after,.duotone-image:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.duotone-image:after {
+  background: darkred;
+  mix-blend-mode: lighten;
+}
+
+.duotone-image:before {
+  background: lightblue;
+  mix-blend-mode: darken;
+}
+
+.duotone-image:hover::before {
+  background: darkgreen;
+  mix-blend-mode: lighten;
+}
+
+.duotone-image:hover::after {
+  background: yellow;
+  mix-blend-mode: darken;
+}
+
+
+
+
+
+
+.moving-text {
+  position: relative;
+  animation: move 5s linear infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
